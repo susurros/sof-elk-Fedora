@@ -17,24 +17,8 @@
     - set_fact:
         git_branch: "{{ git_branch_result.stdout }}"
 
-  vars_prompt:
-    - name: disable_root
-      prompt: "Disable root account from native login (default: yes)?"
-      default: yes
-      private: no
-    - name: geoip_accountid
-      prompt: "Enter GeoIP Account ID (leave this and next two blank to skip GeoIP installation)"
-      private: no
-    - name: geoip_licensekey
-      prompt:  "Enter GeoIP License Key (old format)"
-      private: no
-    - name: geoip_config_persist
-      prompt: "Do you want GeoIP account/license data to persist after installation (default: no)?"
-      default: no
-      private: no
 
   roles:
-    - epel_repo
     - rpmfusion_repo
     - elastic_repo
     - sof-elk_base
